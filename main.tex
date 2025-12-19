@@ -1,0 +1,25 @@
+\documentclass[oneside]{article}
+\usepackage{color} % 文件字体
+\usepackage{CJKutf8} % 中文
+\usepackage{xr}  % 引用其他文件
+\usepackage{hyperref} % bib引用
+\usepackage{graphicx} % 图片
+\usepackage{amsmath}
+\usepackage{minted} % 代码
+\usepackage{tocbibind}
+% \pagestyle{empty}
+\linespread{1.1}\selectfont
+\setlength{\parskip}{0.7em}
+\title{algorithm template}
+\author{zinan.xu.dev@gmail.com}
+
+\input{global} % 一些全局配置 & newcommand
+
+\begin{document}
+\maketitle
+\newpage
+\begin{CJK}{UTF8}{gbsn}
+	\tableofcontents 
+	\include{number_theory/number_theory}
+\end{CJK}
+\end{document}

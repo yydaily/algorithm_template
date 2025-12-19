@@ -1,0 +1,21 @@
+% cpp 代码引用
+\newcommand{\Code}[1]{
+  \inputminted[
+  linenos,
+  breaklines,
+  fontsize=\small
+]{c++}{#1}
+}
+
+% section 配置，我不想要编号，但是又想进目录，所以这样了
+\newcommand{\Sec}[1]{
+  \newpage
+  \section*{#1}
+  \addcontentsline{toc}{section}{#1}
+}
+
+% subsection 配置，理由同上
+\newcommand{\Subsec}[1]{
+  \subsection*{#1}
+  \addcontentsline{toc}{subsection}{#1}
+}
