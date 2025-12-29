@@ -2,6 +2,10 @@
 \CodeCommenttrue     % 代码保留注释
 % \CodeCommentfalse  % 代码取消注释
 
+\newif\ifComment
+\Commenttrue    % 保留一些自己写的说明，避免未来自己看不懂板子怎么用
+% \Commentfalse % 删掉所有的说明
+
 % cpp 代码引用
 \newcommand{\Code}[1]{
   \inputminted[
@@ -17,6 +21,14 @@
     \Code{#1.cpp}
   \else
     \Code{#1.nocomment.cpp}
+  \fi
+}
+
+\newcommand{\Comment}[1]{
+  \ifComment
+    #1
+  \else
+    % do nothing
   \fi
 }
 
