@@ -1,0 +1,24 @@
+\Sec{计算几何}
+
+\Subsec{点集排序-逆时针排序}
+
+\Comment{
+	排序顺序如下图：\\
+	\begin{tikzpicture}
+		\draw[->] (-2,0)--(2,0);
+		\node at (-1,-1) {1};
+		\node at (0,-1) {2};
+		\node at (1,-1) {3};
+		\node at (0,0) {4};
+		\node at (1,0) {5};
+		\node at (1,1) {6};
+		\node at (0,1) {7};
+		\node at (-1,1) {8};
+		\node at (-1,0) {9};
+		\draw[->] (0, -2)--(0,2);
+	\end{tikzpicture}
+	\\
+	注意，这里的(0,0)被特判了，默认原点在x轴正半轴上。此外，如果两点斜率相同的情况下，排序结果会任意
+}
+
+\CodeCommentSwitch{geo/ordered_point}

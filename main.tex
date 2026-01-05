@@ -4,9 +4,9 @@
 \usepackage{xr}  % 引用其他文件
 \usepackage{hyperref} % bib引用
 \usepackage{graphicx} % 图片
-\usepackage{amsmath}
+\usepackage{amsmath} % 数学公式
+\usepackage{tikz} % 画图
 \usepackage{minted} % 代码
-\usepackage{tocbibind}
 % \pagestyle{empty}
 \linespread{1.1}\selectfont
 \setlength{\parskip}{0.7em}
@@ -19,9 +19,12 @@
 \maketitle
 \newpage
 \begin{CJK}{UTF8}{gbsn}
+
 	\tableofcontents 
 	\include{number_theory/number_theory}
 	\include{tree/tree}
 	\include{graph/graph}
+	\include{geo/geo}
 \end{CJK}
 \end{document}
+
