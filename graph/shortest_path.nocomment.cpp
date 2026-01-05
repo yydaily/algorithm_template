@@ -5,15 +5,14 @@ namespace ShortestPath {
     class Graph {
     private:
         int N, M;
-        bool start_from_one;
         std::vector<std::vector<std::pair<long long, int>>> sons;
         std::vector<long long> distance;
         std::set<std::pair<long long, int>> q;
         std::vector<int> per;
         
     public:
-        Graph(int n, int m, bool start_from_one = false) : N(n), M(m), start_from_one(start_from_one) {
-            sons = std::vector<std::vector<std::pair<long long, int>>>(N+start_from_one);
+        Graph(int n, int m) : N(n), M(m) {
+            sons = std::vector<std::vector<std::pair<long long, int>>>(N);
         }
         
         void add_edge(int s, int t, long long v) {
@@ -21,8 +20,8 @@ namespace ShortestPath {
         }
 
         void build(int s) {
-            per = std::vector<int>(N+start_from_one, -1);
-            distance = std::vector<long long>(N+start_from_one, (long long) 1e18);
+            per = std::vector<int>(N, -1);
+            distance = std::vector<long long>(N, (long long) 1e18);
             q.clear();
 
             distance[s] = 0;

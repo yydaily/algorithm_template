@@ -1,10 +1,15 @@
 #include<cassert>
 #include<vector>
 namespace SCC {
+    /*
+     * 找出有向图的强连通分量
+     * 限制：
+     *      - 点的标号从0开始
+     *      - 复杂度 O(N+M)
+     */
     class Graph{
     private:
         int N;
-        bool start_from_one;
         std::vector<std::vector<int>> g; // 有向图
         std::vector<std::vector<int>> g2; // 反向图
         std::vector<int> s; // 第一次dfs的时候记录dfs序，然后反向dfs
@@ -27,10 +32,10 @@ namespace SCC {
     public:
         std::vector<std::vector<int>> sccs; // 保存了有哪些强连通分量，每个list是一个强连通分量
 
-        Graph(int n, int start_from_one = false) : N(n), start_from_one(start_from_one) {
-            g.resize(n+start_from_one);
-            g2.resize(n+start_from_one);
-            vis = std::vector<bool>(n+start_from_one, false);
+        Graph(int n) : N(n) {
+            g.resize(n);
+            g2.resize(n);
+            vis = std::vector<bool>(n, false);
             s = std::vector<int>(0);
             sccs = std::vector<std::vector<int>>(0);
         }
@@ -39,10 +44,10 @@ namespace SCC {
             g2[t].push_back(s);
         }
         void build() {
-            for(int i = start_from_one;i<N+start_from_one;i++) {
+            for(int i = 0;i<N;i++) {
                 if(!vis[i]) dfs(i);
             }
-            vis = std::vector<bool>(N+start_from_one, false);
+            vis = std::vector<bool>(N, false);
             for(int i = s.size()-1;i>=0;i--) {
                 if(!vis[s[i]]) {
                     sccs.push_back(std::vector<int>());
