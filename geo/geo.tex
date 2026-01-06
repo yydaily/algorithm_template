@@ -1,7 +1,12 @@
 \Sec{计算几何}
 
-\Subsec{点集排序-逆时针排序}
+\Subsec{vector重排}
+\CodeCommentSwitch{geo/rearrange}
 
+\Subsec{平面最近点对}
+\CodeCommentSwitch{geo/closest_pair}
+
+\Subsec{点集排序-逆时针排序}
 \Comment{
 	排序顺序如下图：\\
 	\begin{tikzpicture}
@@ -20,5 +25,7 @@
 	\\
 	注意，这里的(0,0)被特判了，默认原点在x轴正半轴上。此外，如果两点斜率相同的情况下，排序结果会任意
 }
-
 \CodeCommentSwitch{geo/ordered_point}
+
+\Subsec{凸包}
+\CodeCommentSwitch{geo/convex_hull}

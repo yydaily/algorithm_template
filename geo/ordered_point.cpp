@@ -2,6 +2,7 @@ namespace OrderedPoint {
     /*
      * 可以对点进行排序，逆时针排序
      * 注意：可以支持任意点集的排序，包括x = 0, y = 0的case
+     * 因为这里用了乘法，所以x/y坐标不要超过INT_MAX，否则你需要转成__int128来算乘法
      */
     class Point {
     public:
