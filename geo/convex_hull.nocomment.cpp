@@ -2,13 +2,16 @@
 #include<numeric>
 #include<algorithm>
 namespace ConvexHull {
-    std::vector<int> argsort(const std::vector<std::pair<long long, long long>> &points) {
+    template<typename T>
+    std::vector<int> argsort(const std::vector<T> &points) {
         std::vector<int> ids(points.size());
         std::iota(ids.begin(), ids.end(), 0);
         std::sort(ids.begin(), ids.end(), [&](int i, int j) { return (points[i] == points[j] ? i < j : points[i] < points[j]); });
         return ids;
     }
-    std::vector<int> ConvexHull(const std::vector<std::pair<long long, long long>> &points, bool inclusize=false) {
+
+    template<typename T>
+    std::vector<int> ConvexHull(const std::vector<T> &points, bool inclusize=false) {
         long long N = points.size();
         if(N==0) return {};
         if(N==1) return {0};
@@ -21,9 +24,9 @@ namespace ConvexHull {
         auto idx = argsort(points);
 
         auto check = [&](long long i, long long j, long long k) -> bool {
-            auto xi = points[i].first, yi = points[i].second;
-            auto xj = points[j].first, yj = points[j].second;
-            auto xk = points[k].first, yk = points[k].second;
+            auto xi = points[i].x, yi = points[i].y;
+            auto xj = points[j].x, yj = points[j].y;
+            auto xk = points[k].x, yk = points[k].y;
             auto dx1 = xj - xi, dy1 = yj - yi;
             auto dx2 = xk - xj, dy2 = yk - yj;
             auto det = dx1 * dy2 - dy1 * dx2;
